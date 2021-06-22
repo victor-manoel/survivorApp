@@ -1,13 +1,15 @@
 import React from 'react';
-import { View, StyleSheet, Text, TouchableOpacity} from 'react-native';
-import GetStarted, { width } from '../../pages/GetStarted';
+import { View, StyleSheet, Text, TouchableOpacity, ScrollView, Picker} from 'react-native';
+import GetStarted, { width } from '../GetStarted';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import {Input} from 'react-native-elements';
+import { ScrollViewComponent } from 'react-native';
 
 
-export default function Login() {
+export default function Registered() {
  return (
    <View style={styles.container}>
+     <ScrollView showsVerticalScrollIndicator={false} >
        <View style={styles.header}>
 
             <View style={styles.text}>
@@ -18,38 +20,53 @@ export default function Login() {
 
                      <View style={styles.headerContentItemActive}>
                         <TouchableOpacity style={styles.headerContentButton}>
-                            <Text style={styles.headerContentButtonTextActive}>Login</Text>
+                            <Text style={styles.headerContentButtonText}>Login</Text>
                         </TouchableOpacity>    
                     </View>
 
                     <View style={styles.headerContentItem}>
                       <TouchableOpacity style={styles.headerContentButton}>
-                          <Text style={styles.headerContentButtonText}>Registered</Text>
+                          <Text style={styles.headerContentButtonTextActive}>Registered</Text>
                       </TouchableOpacity>
                     </View>
              </View>
        </View>
 
        <View style={styles.main}>
+         
           <View style={styles.welcome}>
               <View style={styles.welcomeDescription}>
                   <Text style={styles.welcomeTitle}>Hello Again</Text>
-                  <Text style={styles.welcomeLink}>I'm not registered</Text>
+                  <Text style={styles.welcomeLink}>I'm registered</Text>
               </View>
           </View>
 
               <View style={styles.form}>
                 <View style={styles.formGroup}>
+                  <Text style={styles.formLabel}>Name</Text>
+                  <Input placeholder="Type your name"/>
+                </View>
+
+                <View style={styles.formGroup}>
                   <Text style={styles.formLabel}>Email</Text>
-                  <Input placeholder="Type your e-mail"
-                    leftIcon={<Icon name="envelope" size={18} color="#666666"/>}/>
+                  <Input placeholder="Type your email"
+                    />
                 </View>
 
                 <View style={styles.formGroup}>
                   <Text style={styles.formLabel}>Password</Text>
                   <Input placeholder="Type your password"
-                  secureTextEntry={true}
-                    leftIcon={<Icon name="key" size={18} color="#666666"/>}/>
+                  secureTextEntry={true}/>
+                </View>
+
+                <View style={styles.formGroup}>
+                  <Text style={styles.formLabel}>Gender</Text>
+                  <Input placeholder=""/>
+                </View>
+
+                <View style={styles.formGroup}>
+                  <Text style={styles.formLabel}>Age</Text>
+                  <Input placeholder=""/>
                 </View>
 
                 <View style={styles.formGroup}>
@@ -58,12 +75,14 @@ export default function Login() {
                   </TouchableOpacity>
                 </View>
               </View>
-          
+            
 
 
        </View>
        <View style={styles.bottom}></View>
+       </ScrollView>
    </View>
+   
   );
 }
 
@@ -92,7 +111,7 @@ const styles = StyleSheet.create({
       paddingTop: 10,
       paddingBottom: 10,
       borderBottomWidth: 3,
-      borderBottomColor: '#CCC',
+      borderBottomColor: '#3646DB',
       alignItems: 'center',
     },
     headerContentItemActive: {
@@ -100,7 +119,7 @@ const styles = StyleSheet.create({
       paddingTop: 10,
       paddingBottom: 10,
       borderBottomWidth: 3,
-      borderBottomColor: '#3646DB',
+      borderBottomColor: '#CCC',
       alignItems: 'center',
     },
     headerContentButton: {
@@ -111,6 +130,7 @@ const styles = StyleSheet.create({
     headerContentButtonTextActive: {
       fontWeight: 'bold',
       fontSize: 16,
+      color: 'black',
     },
     headerContentButtonText: {
       fontWeight: 'bold',
@@ -162,5 +182,8 @@ const styles = StyleSheet.create({
       textAlign: 'center',
       color: '#FFF',
    },
+   ScrollView: {
+     marginHorizontal: 0,
+   }
 
 });

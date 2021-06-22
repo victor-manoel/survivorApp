@@ -3,10 +3,11 @@ import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import GetStarted from './src/pages/GetStarted';
 import Login from './src/pages/Login';
+import Registered from './src/pages/Registered';
 
 export default function App() {
   return (
-    <Login/>
+    <Registered/>
   );
 }
 
